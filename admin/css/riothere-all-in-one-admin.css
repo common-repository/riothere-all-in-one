@@ -1,0 +1,1037 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+ body.post-type-shop_order .bulkactions,
+ body.post-type-product .bulkactions,
+ body.post-type-wishlists .bulkactions,
+ body.post-type-carts .bulkactions {
+     margin-bottom: 20px;
+     display: block;
+     width: 100%;
+ }
+ 
+ .profile-edit-woocommerce-info {
+     background-color: #fcfcfc;
+     padding: 20px;
+     border: 1px solid black;
+ }
+ 
+ .profile-edit-woocommerce-info .fields {
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+     grid-gap: 15px;
+ }
+ 
+ .profile-edit-woocommerce-info .fields .field {
+     display: grid;
+     grid-template-columns: auto 1fr;
+     grid-gap: 10px;
+ }
+ 
+ .profile-edit-woocommerce-info .fields .field .label {
+     min-width: 150px;
+     font-weight: bold;
+ }
+ 
+ @media screen and (max-width: 768px) {
+     .profile-edit-woocommerce-info .fields {
+         display: grid;
+         grid-template-columns: 1fr;
+         grid-gap: 15px;
+     }
+ }
+ 
+ .riothere-price-range {
+     display: inline-grid;
+     grid-template-columns: auto 1fr;
+     align-items: center;
+ }
+ 
+ .riothere-price-range .filters-container {
+     display: inline-grid;
+     grid-template-columns: 1fr 1fr;
+     align-items: center;
+ 
+ }
+ 
+ .riothere-price-range .input-container {
+     display: inline-grid;
+     grid-template-columns: auto 1fr;
+     align-items: center;
+ }
+ 
+ .filter-date {
+     display: inline-block;
+ }
+ 
+ .filter-date .riothere-date-from, .filter-date .riothere-date-to {
+     line-height: 28px;
+     height: 28px;
+     margin: 0;
+ }
+ 
+ .days-ago-filters {
+     display: inline-block;
+ }
+ 
+ .days-ago-filters input {
+     min-width: 220px;
+ }
+ 
+ /** Promotions CSS **/
+ #staggered_promotions_settings, #free_shipping_promotions_settings, #promotions_settings, #campaigns_settings {
+     border: none !important;
+     border-radius: 12px;
+ }
+ 
+ #staggered_promotions_settings .inside, #free_shipping_promotions_settings .inside,
+ #campaigns_settings .inside, #promotions_settings .inside {
+     display: block !important;
+     padding: 0;
+ }
+ 
+ #staggered_promotions_settings .postbox-header, #free_shipping_promotions_settings .postbox-header, #campaigns_settings .postbox-header, #promotions_settings .postbox-header {
+     display: none !important;
+ }
+ 
+ .section {
+     display: none;
+ }
+ 
+ .section.section-active {
+     display: block;
+ }
+ 
+ .promotion-container {
+     padding: 16px;
+     margin-top: 8px;
+     margin-bottom: 8px;
+ }
+ 
+ #campaigns_settings *, #staggered_promotions_settings *, #free_shipping_promotions_settings *, #promotions_settings *,
+ #campaigns_settings *:after, #staggered_promotions_settings *:after, #free_shipping_promotions_settings *:after, #promotions_settings *:after,
+ #campaigns_settings *:before, #staggered_promotions_settings *:before, #free_shipping_promotions_settings *:before, #promotions_settings *:before {
+     box-sizing: border-box;
+ }
+ 
+ .promotion-btn {
+     padding: 12px;
+     border-radius: 12px;
+     background: #000;
+     color: #fff;
+     font-size: 16px;
+     cursor: pointer;
+ }
+ 
+ .promotion-btn:disabled {
+     background: rgba(0, 0, 0, 0.5);
+     cursor: not-allowed;
+ }
+ 
+ /* Settings fields */
+ .promotion-setting-group {
+ 
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+ }
+ 
+ .promotion-setting {
+     display: grid;
+     grid-template-columns: 200px 1fr;
+     border: 1px solid #000;
+     border-radius: 12px;
+     margin-bottom: 12px;
+ }
+ 
+ .promotion-setting.promotion-setting--half {
+     width: calc(50% - 15px)
+ }
+ 
+ .promotion-setting-label {
+     padding: 12px;
+     border-right: 4px solid #000;
+ }
+ 
+ .promotion-setting-value {
+     padding: 12px;
+ }
+ 
+ 
+ /* Fields CSS Start*/
+ 
+ .promotion-field-group {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+ }
+ 
+ .promotion-field {
+     display: flex;
+     flex-wrap: wrap;
+     position: relative;
+     padding-top: 10px;
+     margin-top: 8px;
+     margin-bottom: 8px;
+     width: 100%;
+ }
+ 
+ .promotion-field-error {
+     color: red;
+     font-size: 12px;
+     padding-left: 12px;
+     display: none;
+     align-items: center;
+     width: 100%;
+ }
+ 
+ .promotion-field-error.active {
+     display: flex;
+ }
+ 
+ .promotion-field-error:before {
+     content: '';
+     display: block;
+     width: 6px;
+     height: 6px;
+     background: red;
+     border-radius: 50%;
+     margin-right: 6px;
+ 
+ }
+ 
+ .promotion-field.promotion-field--half {
+     width: calc(50% - 12px);
+ }
+ 
+ .promotion-field label {
+     position: absolute;
+     top: -2px;
+     background: white;
+     left: 12px;
+     padding: 2px 0;
+     z-index: 2;
+     line-height: 0.7;
+ }
+ 
+ .promotion-field-input-wrapper {
+     position: relative;
+     width: 100%;
+     height: max-content;
+ }
+ 
+ .promotion-field-input-wrapper .promotion-field-input {
+     width: 100%;
+     font-size: 16px;
+     padding: 5px 20px;
+     border-radius: 12px;
+ }
+ 
+ /* .promotion-field-input.promotion-field-input--select2 {
+ 
+ } */
+ 
+ .promotion-field-input-wrapper.promotion-field-input-wrapper--with-left-icon .promotion-field-input {
+     padding-left: 50px;
+ }
+ 
+ .promotion-field-input-wrapper .promotion-field-input-icon {
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     display: flex;
+     align-items: center;
+     padding-left: 12px;
+     font-size: 16px;
+     border-right: 2px solid black;
+     padding-right: 4px;
+     min-width: 30px;
+ }
+ 
+ /* ** Select2 fields Start */
+ .promotion-field-input.promotion-field-input--select2 ~ .select2-container {
+     display: flex;
+     width: 100% !important;
+ }
+ 
+ .promotion-field-input.promotion-field-input--select2 ~ .select2-container .select2-selection__rendered {
+     position: relative;
+     display: flex;
+     flex-wrap: wrap;
+ }
+ 
+ .promotion-field-input.promotion-field-input--select2 ~ .select2-container .select2-selection__rendered .select2-selection__clear {
+     position: absolute;
+     right: 12px;
+     top: 0;
+     bottom: 0;
+     display: flex;
+     align-items: center;
+     font-size: 22px;
+ }
+ 
+ .promotion-field-input.promotion-field-input--select2 ~ .select2-container .selection {
+     width: 100%;
+     padding: 0;
+ }
+ 
+ .promotion-field-input.promotion-field-input--select2 ~ .select2-container .selection .select2-selection {
+     padding: 5px 20px;
+     border-radius: 12px;
+     border: 1px solid black;
+ }
+ 
+ .promotion-field-input.promotion-field-input--select2 ~ .select2-container .select2-selection--multiple .select2-selection__rendered * {
+     margin: 0;
+     display: flex;
+ }
+ 
+ .promotion-field-input.promotion-field-input--select2 ~ .select2-container .select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
+     margin: 8px 4px;
+     background: #000;
+     color: white;
+     padding: 4px 12px;
+     border-radius: 12px;
+     font-size: 16px;
+ 
+ }
+ 
+ .promotion-field-input.promotion-field-input--select2 ~ .select2-container .select2-selection--multiple .select2-selection__rendered .select2-selection__choice__remove {
+     color: white;
+     font-size: 16px;
+     padding-right: 6px;
+ }
+ 
+ .select2-container .promotion-field-select2.select2-dropdown {
+     border-radius: 12px;
+     overflow: hidden;
+     border: 1px solid black;
+ }
+ 
+ .select2-container .promotion-field-select2.select2-dropdown.select2-dropdown--below {
+     position: relative;
+     top: 6px;
+ }
+ 
+ .select2-container .promotion-field-select2.select2-dropdown.select2-dropdown--above {
+     position: relative;
+     bottom: 6px;
+ }
+ 
+ .select2-container .promotion-field-select2.select2-dropdown .select2-results__option {
+     border-radius: 12px;
+     padding: 6px 12px;
+ }
+ 
+ .select2-results__option[data-selected="true"] {
+     background-color: black;
+     color: white;
+ }
+ 
+ .select2-results__option[data-selected="true"].select2-results__option--highlighted {
+     background-color: rgba(0, 0, 0, 0.7);
+     color: white;
+ }
+ 
+ .select2-product-option {
+     display: flex;
+ 
+ }
+ 
+ .select2-product-option img {
+     width: 50px;
+     height: 50px;
+     margin-right: 12px;
+ }
+ 
+ /* ** Select2 fields End */
+ 
+ /* ** Custom checkbox field */
+ 
+ #staggered_promotions_settings .custom-checkbox-checkmark, #free_shipping_promotions_settings .custom-checkbox-checkmark, #campaigns_settings .custom-checkbox-checkmark, #promotions_settings .custom-checkbox-checkmark {
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 20px;
+     width: 20px;
+     background-color: #eee;
+ }
+ 
+ #staggered_promotions_settings .custom-checkbox-label,
+ #free_shipping_promotions_settings .custom-checkbox-label,
+ #campaigns_settings .custom-checkbox-label,
+ #promotions_settings .custom-checkbox-label {
+     padding-left: 30px;
+ }
+ 
+ /* On mouse-over, add a grey background color */
+ #staggered_promotions_settings .custom-checkbox-container:hover input ~ .custom-checkbox-checkmark,
+ #free_shipping_promotions_settings .custom-checkbox-container:hover input ~ .custom-checkbox-checkmark,
+ #campaigns_settings .custom-checkbox-container:hover input ~ .custom-checkbox-checkmark,
+ #promotions_settings .custom-checkbox-container:hover input ~ .custom-checkbox-checkmark {
+     background-color: #ccc;
+ }
+ 
+ /* When the checkbox is checked, add a blue background */
+ #staggered_promotions_settings .custom-checkbox-container input:checked ~ .custom-checkbox-checkmark,
+ #free_shipping_promotions_settings .custom-checkbox-container input:checked ~ .custom-checkbox-checkmark,
+ #campaigns_settings .custom-checkbox-container input:checked ~ .custom-checkbox-checkmark,
+ #promotions_settings .custom-checkbox-container input:checked ~ .custom-checkbox-checkmark {
+     background-color: #000;
+ }
+ 
+ #staggered_promotions_settings .custom-checkbox-container input:disabled ~ .custom-checkbox-checkmark,
+ #free_shipping_promotions_settings .custom-checkbox-container input:disabled ~ .custom-checkbox-checkmark, 
+ #campaigns_settings .custom-checkbox-container input:disabled ~ .custom-checkbox-checkmark,
+ #promotions_settings .custom-checkbox-container input:disabled ~ .custom-checkbox-checkmark {
+     cursor: not-allowed;
+ }
+ 
+ /* Create the checkmark/indicator (hidden when not checked) */
+ #staggered_promotions_settings .custom-checkbox-checkmark:after,
+ #free_shipping_promotions_settings .custom-checkbox-checkmark:after,
+ #campaigns_settings .custom-checkbox-checkmark:after,
+ #promotions_settings .custom-checkbox-checkmark:after {
+     content: "";
+     position: absolute;
+     display: none;
+ }
+ 
+ /* Show the checkmark when checked */
+ #staggered_promotions_settings .custom-checkbox-container input:checked ~ .custom-checkbox-checkmark:after, 
+ #free_shipping_promotions_settings .custom-checkbox-container input:checked ~ .custom-checkbox-checkmark:after, 
+ #campaigns_settings .custom-checkbox-container input:checked ~ .custom-checkbox-checkmark:after,
+ #promotions_settings .custom-checkbox-container input:checked ~ .custom-checkbox-checkmark:after {
+     display: block;
+     box-sizing: content-box;
+ }
+ 
+ /* Style the checkmark/indicator */
+ #staggered_promotions_settings .custom-checkbox-container .custom-checkbox-checkmark:after,
+ #free_shipping_promotions_settings .custom-checkbox-container .custom-checkbox-checkmark:after,
+ #campaigns_settings .custom-checkbox-container .custom-checkbox-checkmark:after,
+ #promotions_settings .custom-checkbox-container .custom-checkbox-checkmark:after {
+     left: 7px;
+     top: 4px;
+     width: 3px;
+     height: 7px;
+     border: solid white;
+     border-width: 0 3px 3px 0;
+     -webkit-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+     transform: rotate(45deg);
+ }
+ 
+ /* Fields CSS End*/
+ 
+ .display-table {
+     font-family: Arial, Helvetica, sans-serif;
+     border-collapse: collapse;
+     width: 100%;
+ }
+ 
+ .display-table td, .display-table th {
+     border: 1px solid #ddd;
+     padding: 8px;
+ }
+ 
+ .display-table tr:nth-child(even) {
+     background-color: #f2f2f2;
+ }
+ 
+ .display-table tr:hover {
+     background-color: #ddd;
+ }
+ 
+ .display-table th {
+     padding-top: 12px;
+     padding-bottom: 12px;
+     text-align: left;
+     background-color: #000;
+     color: white;
+ }
+ 
+ /* Products List View */
+ #staggered_promotions_settings .promotion-h2,
+ #free_shipping_promotions_settings .promotion-h2,
+ #campaigns_settings .promotion-h2,
+ #promotions_settings .promotion-h2 {
+     font-size: 20px;
+     font-weight: bold;
+     margin-top: 12px;
+ 
+ }
+ #staggered_promotions_settings .promotion-h2 span,
+ #free_shipping_promotions_settings .promotion-h2 span,
+ #campaigns_settings .promotion-h2 span,
+ #promotions_settings .promotion-h2 span {
+     font-weight: 600;
+     display: inline-block;
+     padding: 6px 12px;
+     font-size: 15px;
+     border-radius: 12px;
+     border: 1px solid black;
+     background: #000;
+     color: #fff;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-products-header, 
+ #free_shipping_promotions_settings .promotion-applicable-products-header, 
+ #campaigns_settings .promotion-applicable-products-header,
+ #promotions_settings .promotion-applicable-products-header {
+     display: grid;
+     font-weight: bold;
+     font-size: 13px;
+     align-items: flex-end;
+     background: #000;
+     color: white;
+ }
+ #staggered_promotions_settings .promotion-applicable-products-header,
+ #free_shipping_promotions_settings .promotion-applicable-products-header,
+ #campaigns_settings .promotion-applicable-products-header{
+     grid-template-columns: 120px 300px;
+ } 
+ #promotions_settings .promotion-applicable-products-header {
+     grid-template-columns: 110px 100px 1fr 200px;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-product-item,
+ #free_shipping_promotions_settings .promotion-applicable-product-item,
+ #campaigns_settings .promotion-applicable-product-item,
+ #promotions_settings .promotion-applicable-product-item {
+     display: grid;
+     align-items: center;
+     height: max-content;
+ }
+ #staggered_promotions_settings .promotion-applicable-product-item,
+ #free_shipping_promotions_settings .promotion-applicable-product-item,
+ #campaigns_settings .promotion-applicable-product-item {
+     grid-template-columns: 120px 300px;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-products-header > div, 
+ #free_shipping_promotions_settings .promotion-applicable-products-header > div, 
+ #campaigns_settings .promotion-applicable-products-header > div,
+ #promotions_settings .promotion-applicable-products-header > div {
+     padding: 8px;
+     display: flex;
+     align-items: end;
+     /* height: 100%; */
+     box-sizing: border-box;
+     height: 100%;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-products-header > div:not(:last-child), 
+ #free_shipping_promotions_settings .promotion-applicable-products-header > div:not(:last-child), 
+ #campaigns_settings .promotion-applicable-products-header > div:not(:last-child),
+ #promotions_settings .promotion-applicable-products-header > div:not(:last-child) {
+     border-right: 1px solid white;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-products-list,
+ #free_shipping_promotions_settings .promotion-applicable-products-list,
+ #campaigns_settings .promotion-applicable-products-list,
+ #promotions_settings .promotion-applicable-products-list {
+     max-height: 400px;
+     overflow-y: auto;
+     border: 1px solid #cfcfcf;
+     display: grid;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-product-item, 
+ #free_shipping_promotions_settings .promotion-applicable-product-item, 
+ #campaigns_settings .promotion-applicable-product-item,
+ #promotions_settings .promotion-applicable-product-item {
+     display: grid;
+     align-items: center;
+     height: max-content;
+ }
+ #staggered_promotions_settings .promotion-applicable-product-item,
+ #free_shipping_promotions_settings .promotion-applicable-product-item,
+ #campaigns_settings .promotion-applicable-product-item {
+     grid-template-columns: 120px 300px;
+ }
+ #promotions_settings .promotion-applicable-product-item {
+     grid-template-columns: 110px 100px 1fr 200px;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-product-item > div, 
+ #free_shipping_promotions_settings .promotion-applicable-product-item > div, 
+ #campaigns_settings .promotion-applicable-product-item > div,
+ #promotions_settings .promotion-applicable-product-item > div {
+     padding: 12px 8px;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-product-item:not(:last-child), 
+ #free_shipping_promotions_settings .promotion-applicable-product-item:not(:last-child), 
+ #campaigns_settings .promotion-applicable-product-item:not(:last-child),
+ #promotions_settings .promotion-applicable-product-item:not(:last-child) {
+     border-bottom: 1px solid;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-product-item-image,
+ #free_shipping_promotions_settings .promotion-applicable-product-item-image,
+ #campaigns_settings .promotion-applicable-product-item-image,
+ #promotions_settings .promotion-applicable-product-item-image {
+     position: relative;
+     height: 100px;
+     width: 100px;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-product-item img, 
+ #free_shipping_promotions_settings .promotion-applicable-product-item img, 
+ #campaigns_settings .promotion-applicable-product-item img,
+ #promotions_settings .promotion-applicable-product-item img {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: contain;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-product-item-meta h2, 
+ #free_shipping_promotions_settings .promotion-applicable-product-item-meta h2, 
+ #campaigns_settings .promotion-applicable-product-item-meta h2,
+ #promotions_settings .promotion-applicable-product-item-meta h2 {
+     font-size: 16px;
+     font-weight: bold;
+     padding: 0;
+     margin: 0;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-product-item-meta h3, 
+ #free_shipping_promotions_settings .promotion-applicable-product-item-meta h3, 
+ #campaigns_settings .promotion-applicable-product-item-meta h3,
+ #promotions_settings .promotion-applicable-product-item-meta h3 {
+     font-size: 12px;
+     font-weight: bold;
+     padding: 0;
+     margin: 0;
+ }
+ #staggered_promotions_settings .promotion-applicable-product-item-meta h4, 
+ #free_shipping_promotions_settings .promotion-applicable-product-item-meta h4, 
+ #campaigns_settings .promotion-applicable-product-item-meta h4,
+ #promotions_settings .promotion-applicable-product-item-meta h4 {
+     padding: 0;
+     margin: 0;
+ }
+ 
+ #staggered_promotions_settings .promotion-product-meta h4, 
+ #free_shipping_promotions_settings .promotion-product-meta h4, 
+ #campaigns_settings .promotion-product-meta h4,
+ #promotions_settings .promotion-product-meta h4 {
+     font-size: 10px;
+     font-weight: bold;
+     padding: 0;
+     margin: 0;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-product-item-price, 
+ #free_shipping_promotions_settings .promotion-applicable-product-item-price, 
+ #campaigns_settings .promotion-applicable-product-item-price,
+ #promotions_settings .promotion-applicable-product-item-price {
+     justify-self: end;
+     font-size: 22px;
+     padding: 0 6px;
+     display: grid;
+     grid-template-columns: auto;
+     grid-gap: 12px;
+     text-align: right;
+ }
+ #staggered_promotions_settings .promotion-applicable-product-item-price .regular-price,
+ #staggered_promotions_settings .promotion-applicable-product-item-price .promotion-price,
+ #free_shipping_promotions_settings .promotion-applicable-product-item-price .regular-price,
+ #free_shipping_promotions_settings .promotion-applicable-product-item-price .promotion-price,
+ #promotions_settings .promotion-applicable-product-item-price .regular-price,
+ #promotions_settings .promotion-applicable-product-item-price .promotion-price,
+ #campaigns_settings .promotion-applicable-product-item-price .regular-price,
+ #campaigns_settings .promotion-applicable-product-item-price .promotion-price {
+     font-size: 12px;
+ }
+ 
+ #staggered_promotions_settings .promotion-applicable-product-show-on-home-page, 
+ #free_shipping_promotions_settings .promotion-applicable-product-show-on-home-page, 
+ #campaigns_settings .promotion-applicable-product-show-on-home-page,
+ #promotions_settings .promotion-applicable-product-show-on-home-page {
+     align-self: center;
+     font-size: 32px;
+ }
+ 
+ #staggered_promotions_settings .applicable-products-section-view, 
+ #free_shipping_promotions_settings .applicable-products-section-view, 
+ #campaigns_settings .applicable-products-section-view,
+ #promotions_settings .applicable-products-section-view {
+     position: relative;
+ }
+ 
+ #staggered_promotions_settings .applicable-products-section-view.has-label .promotion-applicable-products-header,
+ #staggered_promotions_settings .applicable-products-section-view.has-label .promotion-applicable-product-item,
+ #free_shipping_promotions_settings .applicable-products-section-view.has-label .promotion-applicable-products-header,
+ #free_shipping_promotions_settings .applicable-products-section-view.has-label .promotion-applicable-product-item,
+ #promotions_settings .applicable-products-section-view.has-label .promotion-applicable-products-header,
+ #promotions_settings .applicable-products-section-view.has-label .promotion-applicable-product-item,
+ #campaigns_settings .applicable-products-section-view.has-label .promotion-applicable-products-header,
+ #campaigns_settings .applicable-products-section-view.has-label .promotion-applicable-product-item {
+     grid-template-columns: 110px 110px 110px 400px 1fr;
+ }
+ 
+ #staggered_promotions_settings .applicable-products-section-view.has-label .promotion-applicable-products-header > div:last-child,
+ #free_shipping_promotions_settings .applicable-products-section-view.has-label .promotion-applicable-products-header > div:last-child,
+ #campaigns_settings .applicable-products-section-view.has-label .promotion-applicable-products-header > div:last-child,
+ #promotions_settings .applicable-products-section-view.has-label .promotion-applicable-products-header > div:last-child {
+     display: flex;
+ }
+ 
+ /* Products List  Edit */
+ 
+ #staggered_promotions_settings .promotion-products-list-header,
+ #free_shipping_promotions_settings .promotion-products-list-header,
+ #campaigns_settings .promotion-products-list-header,
+ #promotions_settings .promotion-products-list-header {
+     display: grid;
+     font-weight: bold;
+     font-size: 13px;
+     align-items: flex-end;
+     background: #000;
+ }
+ #staggered_promotions_settings .promotion-products-list-header,
+ #free_shipping_promotions_settings .promotion-products-list-header,
+ #campaigns_settings .promotion-products-list-header {
+     grid-template-columns: 120px 300px;
+ }
+ #promotions_settings .promotion-products-list-header {
+     grid-template-columns: 110px 100px 1fr 200px;
+ }
+ 
+ #staggered_promotions_settings .promotion-product-item,
+ #free_shipping_promotions_settings .promotion-product-item,
+ #campaigns_settings .promotion-product-item,
+ #promotions_settings .promotion-product-item {
+     display: grid;
+     align-items: center;
+     height: max-content;
+ }
+ #staggered_promotions_settings .promotion-product-item,
+ #free_shipping_promotions_settings .promotion-product-item,
+ #campaigns_settings .promotion-product-item {
+     grid-template-columns: 120px 300px;
+ }
+ 
+ #staggered_promotions_settings .promotion-products-list-header > div,
+ #free_shipping_promotions_settings .promotion-products-list-header > div,
+ #campaigns_settings .promotion-products-list-header > div,
+ #promotions_settings .promotion-products-list-header > div {
+     padding: 8px 14px 8px 8px;
+     color: white;
+     display: flex;
+     height: 100%;
+     align-items: end;
+ }
+ 
+ #staggered_promotions_settings .promotion-products-list-header > div:not(:last-child), 
+ #free_shipping_promotions_settings .promotion-products-list-header > div:not(:last-child), 
+ #campaigns_settings .promotion-products-list-header > div:not(:last-child),
+ #promotions_settings .promotion-products-list-header > div:not(:last-child) {
+     border-right: 1px solid white;
+ }
+ 
+ #staggered_promotions_settings .promotion-products-list,
+ #free_shipping_promotions_settings .promotion-products-list,
+ #campaigns_settings .promotion-products-list,
+ #promotions_settings .promotion-products-list {
+     max-height: 400px;
+     overflow-y: auto;
+     border: 1px solid #cfcfcf;
+     display: grid;
+     grid-gap: 6px;
+ }
+ 
+ #staggered_promotions_settings .promotion-product-item,
+ #free_shipping_promotions_settings .promotion-product-item,
+ #campaigns_settings .promotion-product-item,
+ #promotions_settings .promotion-product-item {
+     display: grid;
+     align-items: center;
+     height: max-content;
+ }
+ #staggered_promotions_settings .promotion-product-item,
+ #free_shipping_promotions_settings .promotion-product-item,
+ #campaigns_settings .promotion-product-item {
+     grid-template-columns: 120px 300px;
+ }
+ #promotions_settings .promotion-product-item {
+     grid-template-columns: 110px 100px 1fr 200px;
+ }
+ 
+ 
+ #staggered_promotions_settings .promotion-product-item > div,
+ #free_shipping_promotions_settings .promotion-product-item > div,
+ #campaigns_settings .promotion-product-item > div,
+ #promotions_settings .promotion-product-item > div {
+     padding: 8px 14px 8px 8px;
+ }
+ 
+ #staggered_promotions_settings .promotion-products-list-section .promotion-products-list-header .show-label,
+ #staggered_promotions_settings .promotion-products-list-section .promotion-products-list-header .filler-space,
+ #free_shipping_promotions_settings .promotion-products-list-section .promotion-products-list-header .show-label,
+ #free_shipping_promotions_settings .promotion-products-list-section .promotion-products-list-header .filler-space,
+ #promotions_settings .promotion-products-list-section .promotion-products-list-header .show-label,
+ #promotions_settings .promotion-products-list-section .promotion-products-list-header .filler-space,
+ #campaigns_settings .promotion-products-list-section .promotion-products-list-header .show-label,
+ #campaigns_settings .promotion-products-list-section .promotion-products-list-header .filler-space {
+     display: none;
+ }
+ 
+ 
+ #staggered_promotions_settings .promotion-products-list-section.with-label .promotion-products-list-header .show-label,
+ #staggered_promotions_settings .promotion-products-list-section.with-label .promotion-products-list-header .filler-space,
+ #free_shipping_promotions_settings .promotion-products-list-section.with-label .promotion-products-list-header .show-label,
+ #free_shipping_promotions_settings .promotion-products-list-section.with-label .promotion-products-list-header .filler-space,
+ #promotions_settings .promotion-products-list-section.with-label .promotion-products-list-header .show-label,
+ #promotions_settings .promotion-products-list-section.with-label .promotion-products-list-header .filler-space,
+ #campaigns_settings .promotion-products-list-section.with-label .promotion-products-list-header .show-label,
+ #campaigns_settings .promotion-products-list-section.with-label .promotion-products-list-header .filler-space {
+     display: flex;
+ }
+ 
+ #staggered_promotions_settings .promotion-products-list-section.with-label .promotion-products-list-header,
+ #staggered_promotions_settings .promotion-products-list-section.with-label .promotion-product-item,
+ #free_shipping_promotions_settings .promotion-products-list-section.with-label .promotion-products-list-header,
+ #free_shipping_promotions_settings .promotion-products-list-section.with-label .promotion-product-item,
+ #promotions_settings .promotion-products-list-section.with-label .promotion-products-list-header,
+ #promotions_settings .promotion-products-list-section.with-label .promotion-product-item,
+ #campaigns_settings .promotion-products-list-section.with-label .promotion-products-list-header,
+ #campaigns_settings .promotion-products-list-section.with-label .promotion-product-item {
+     grid-template-columns: 110px 110px 110px 400px 1fr;
+ }
+ 
+ #staggered_promotions_settings .promotion-product-item.template,
+ #free_shipping_promotions_settings .promotion-product-item.template,
+ #campaigns_settings .promotion-product-item.template,
+ #promotions_settings .promotion-product-item.template {
+     display: none;
+ }
+ 
+ #staggered_promotions_settings .promotion-product-item:not(:last-child),
+ #free_shipping_promotions_settings .promotion-product-item:not(:last-child),
+ #campaigns_settings .promotion-product-item:not(:last-child),
+ #promotions_settings .promotion-product-item:not(:last-child) {
+     border-bottom: 1px solid;
+ }
+ 
+ #staggered_promotions_settings .promotion-product-item-image,
+ #free_shipping_promotions_settings .promotion-product-item-image,
+ #campaigns_settings .promotion-product-item-image,
+ #promotions_settings .promotion-product-item-image {
+     position: relative;
+     height: 100px;
+     width: 100px;
+ }
+ 
+ .promotion-product-item-image img {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: contain;
+ }
+ 
+ /* Rules wrapper */
+ 
+ #staggered_promotions_settings .promotion-product-meta h2,
+ #free_shipping_promotions_settings .promotion-product-meta h2,
+ #campaigns_settings .promotion-product-meta h2,
+ #promotions_settings .promotion-product-meta h2 {
+     font-size: 16px;
+     font-weight: bold;
+     padding: 0;
+     margin: 0;
+ }
+ 
+ #staggered_promotions_settings .promotion-product-meta h3,
+ #free_shipping_promotions_settings .promotion-product-meta h3,
+ #campaigns_settings .promotion-product-meta h3,
+ #promotions_settings .promotion-product-meta h3 {
+     font-size: 12px;
+     font-weight: bold;
+     padding: 0;
+     margin: 0;
+ }
+ 
+ #staggered_promotions_settings .promotion-product-meta h4,
+ #free_shipping_promotions_settings .promotion-product-meta h4,
+ #campaigns_settings .promotion-product-meta h4,
+ #promotions_settings .promotion-product-meta h4 {
+     font-size: 10px;
+     font-weight: bold;
+     padding: 0;
+     margin: 0;
+ }
+ 
+ #staggered_promotions_settings .promotion-product-price,
+ #free_shipping_promotions_settings .promotion-product-price,
+ #campaigns_settings .promotion-product-price,
+ #promotions_settings .promotion-product-price {
+     justify-self: end;
+     font-size: 22px;
+     padding: 0 6px;
+     display: grid;
+     grid-template-columns: auto auto;
+     grid-gap: 12px;
+ }
+ 
+ #staggered_promotions_settings .product-selected-handler,
+ #free_shipping_promotions_settings .product-selected-handler,
+ #campaigns_settings .product-selected-handler,
+ #promotions_settings .product-selected-handler {
+     align-self: center;
+     font-size: 32px;
+ }
+ 
+ #staggered_promotions_settings .promotion-products-list-section,
+ #free_shipping_promotions_settings .promotion-products-list-section,
+ #campaigns_settings .promotion-products-list-section,
+ #promotions_settings .promotion-products-list-section {
+     position: relative;
+ }
+ 
+ #staggered_promotions_settings .promotion-list-status,
+ #free_shipping_promotions_settings .promotion-list-status,
+ #campaigns_settings .promotion-list-status,
+ #promotions_settings .promotion-list-status {
+     position: absolute;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     display: none;
+     place-items: center;
+     place-content: center;
+     background-color: rgba(0, 0, 0, 0.5);
+ }
+ 
+ #staggered_promotions_settings .promotion-list-status.active,
+ #free_shipping_promotions_settings .promotion-list-status.active,
+ #campaigns_settings .promotion-list-status.active,
+ #promotions_settings .promotion-list-status.active {
+     display: flex;
+ }
+ 
+ #staggered_promotions_settings .promotion-list-status p,
+ #free_shipping_promotions_settings .promotion-list-status p,
+ #campaigns_settings .promotion-list-status p,
+ #promotions_settings .promotion-list-status p {
+     color: white;
+     font-size: 30px;
+ }
+ 
+ #staggered_promotions_settings .promotion-list-status.promotion-disable-edit p,
+ #free_shipping_promotions_settings .promotion-list-status.promotion-disable-edit p,
+ #campaigns_settings .promotion-list-status.promotion-disable-edit p,
+ #promotions_settings .promotion-list-status.promotion-disable-edit p {
+     color: red;
+     font-size: 30px;
+ }
+ 
+ #staggered_promotions_settings .promotion-container.promotion-products-list-section .promotion-products-list, 
+ #free_shipping_promotions_settings .promotion-container.promotion-products-list-section .promotion-products-list, 
+ #campaigns_settings .promotion-container.promotion-products-list-section .promotion-products-list,
+ #promotions_settings .promotion-container.promotion-products-list-section .promotion-products-list {
+     min-height: 200px;
+ }
+ 
+ /* Rules wrapper */
+ #staggered_promotions_settings .rules-wrapper,
+ #free_shipping_promotions_settings .rules-wrapper,
+ #campaigns_settings .rules-wrapper,
+ #promotions_settings .rules-wrapper {
+     position: relative;
+ }
+ 
+ #staggered_promotions_settings .lds-dual-ring,
+ #free_shipping_promotions_settings .lds-dual-ring,
+ #campaigns_settings .lds-dual-ring,
+ #promotions_settings .lds-dual-ring {
+     display: inline-block;
+     width: 80px;
+     height: 80px;
+ }
+ 
+ #staggered_promotions_settings .lds-dual-ring:after,
+ #free_shipping_promotions_settings .lds-dual-ring:after,
+ #campaigns_settings .lds-dual-ring:after,
+ #promotions_settings .lds-dual-ring:after {
+     content: " ";
+     display: block;
+     width: 64px;
+     height: 64px;
+     margin: 8px;
+     border-radius: 50%;
+     border: 6px solid #000;
+     border-color: #000 transparent #000 transparent;
+     animation: lds-dual-ring 1.2s linear infinite;
+ }
+ 
+ #staggered_promotions_settings .rule-loading.loading,
+ #free_shipping_promotions_settings .rule-loading.loading,
+ #campaigns_settings .rule-loading.loading,
+ #promotions_settings .rule-loading.loading {
+     display: flex;
+ }
+ 
+ #staggered_promotions_settings .rule-loading,
+ #free_shipping_promotions_settings .rule-loading,
+ #campaigns_settings .rule-loading,
+ #promotions_settings .rule-loading {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     z-index: 10;
+     place-items: center;
+     place-content: center;
+     background-color: rgba(0, 0, 0, 0.1);
+     display: none;
+ }
+ @keyframes lds-dual-ring {
+     0% {
+         transform: rotate(0deg);
+     }
+     100% {
+         transform: rotate(360deg);
+     }
+ }
+ 
+/* The following is for tables that show 'Data at a Glance' on Dashboard */
+.riothere-dashboard-table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+    /* the following 2 are needed to ensure table doesn't overflow parent container */
+    table-layout: fixed; 
+    word-break: break-word;
+}
+.riothere-dashboard-table td, .riothere-dashboard-table th {
+    /* border: 1px solid #dddddd; */
+    text-align: left;
+    padding: 8px;
+}
+.riothere-dashboard-table tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+/* Select2 (i.e. autocomplete dropdown fields) that are NOT on WC default
+ pages (like in Wishlists or Seller Reports for example) do not get styled 
+ automatically. So we do it manually */
+.select2-container {
+    width: 240px !important;
+}

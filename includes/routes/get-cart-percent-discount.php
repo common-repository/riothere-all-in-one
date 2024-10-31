@@ -1,0 +1,144 @@
+<?php
+function riothere_delete_all_auto_fixed_cart_coupons_for_user($email, $flag, $discount_type)
+{
+    $args = array(
+        'nopaging' => true,
+        'post_type' => 'shop_coupon',
+        'post_status' => 'publish',
+    );
+
+    $all_coupons = get_posts($args);
+    foreach ($all_coupons as $coupon) {
+        $coupon_id = $coupon->ID;
+        $coupon = new WC_Coupon($coupon_id);
+
+        $is_fixed_cart_coupon = $coupon->get_discount_type() === $discount_type;
+        $user_is_allowed_to_use_coupon = in_array($email, $coupon->get_email_restrictions());
+        $is_generated_by_cart_percent_discount = $coupon->get_meta($flag);
+        $is_unused = $coupon->get_usage_count() === 0;
+
+        if (
+            $user_is_allowed_to_use_coupon &&
+            $is_fixed_cart_coupon &&
+            $is_generated_by_cart_percent_discount &&
+            $is_unused // we shouldn't delete it if it's used since it shows up on Single Order page and is clickable. In fact, it's the only way for Admins to know the source of a discount on a certain order
+        ) {
+            wp_delete_post($coupon_id, true);
+        }
+    }
+}
+
+function riothere_get_cart_percent_discount_api()
+{
+    register_rest_route('riothere/v1', 'riothere-cart-percent-discount', array(
+        'methods' => 'POST',
+        'permission_callback' => '__return_true',
+        'callback' => function (WP_REST_Request $request) {
+            $params = $request->get_params();
+            $product_ids = $params['product_ids'];
+            $email = $params['email'];
+
+            $flag = 'generated_by_cart_percent_discount';
+            $discount_type = 'fixed_cart';
+            riothere_delete_all_auto_fixed_cart_coupons_for_user($email, $flag, $discount_type);
+
+            $products_price_sum = 0;
+            $all_discounts = array();
+            $possible_discounts = array();
+
+            $taxes = WC_Tax::get_rates_for_tax_class("Standard rate");
+            $vat = 0;
+
+            foreach ($taxes as $tax) {
+                $vat = $tax->tax_rate;
+            }
+            $vat_percent = $vat / 100;
+
+            if ($product_ids) {
+                foreach ($product_ids as $id) {
+
+                    $product_data = Riothere_All_In_One_Admin::get_product_data($id);
+                    if ($product_data) {
+                        $product_price = $product_data["price"];
+                        $products_price_sum += $product_price;
+                    }
+                }
+            }
+
+            $products_price_sum_with_vat = $products_price_sum * (1 + $vat_percent);
+
+            $args_cart_discounts_query = array(
+                'post_type' => 'cart-discounts',
+                'status' => 'publish',
+                'posts_per_page' => -1,
+            );
+
+            $cart_discounts_query = new WP_Query($args_cart_discounts_query);
+
+            if ($cart_discounts_query->have_posts()) {
+                while ($cart_discounts_query->have_posts()) {
+                    $cart_discounts_query->the_post();
+                    array_push($all_discounts, array(
+                        'value of cart' => get_field('value_of_cart', get_the_ID()),
+                        'discount percent' => get_field('discount', get_the_ID()),
+                    ));
+                }
+            }
+
+            foreach ($all_discounts as $each) {
+                if ($products_price_sum_with_vat >= $each['value of cart']) {
+                    array_push($possible_discounts, array(
+                        'value of cart' => $each['value of cart'],
+                        'discount percent' => $each['discount percent'],
+                    ));
+                }
+            }
+
+            $max_discount_percent = 0;
+            $value_of_cart = 0;
+            foreach ($possible_discounts as $each) {
+                if ($each['discount percent'] >= $max_discount_percent) {
+                    $max_discount_percent = $each['discount percent'];
+                    $value_of_cart = $each['value of cart'];
+                }
+            }
+
+            $coupon = new WC_Coupon();
+            $key_code = null;
+            $discount_applied = false;
+
+            if ($max_discount_percent > 0) {
+                $keys = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
+                for ($i = 0; $i < 9; $i++) {
+                    $key_code .= $keys[array_rand($keys)];
+                }
+
+                $coupon->set_code($key_code);
+                $coupon->set_description('Cart Percent Discount (auto created)');
+                $coupon->set_discount_type($discount_type);
+                $coupon->set_amount(($max_discount_percent / 100) * $products_price_sum);
+                $coupon->set_free_shipping(false);
+                $coupon->set_individual_use(true);
+                $coupon->set_email_restrictions(array($email));
+                $coupon->set_usage_limit(1);
+                $coupon->set_usage_limit_per_user(1);
+                // we set a flag to know this is a coupon generated by "cart percent discount"
+                $coupon->update_meta_data($flag, true);
+                $coupon->save();
+                // Important to trigger the below hook because some custom fields
+                // get initialized inside it. Like `exclude_product_sellers`
+                do_action('woocommerce_coupon_options_save', $coupon->get_id(), $coupon);
+                $discount_applied = true;
+            }
+
+            return array(
+                'discount_applied' => $discount_applied,
+                'discount_amount' => ($max_discount_percent / 100) * $products_price_sum_with_vat,
+                'discount_percent' => $max_discount_percent,
+                'value_of_cart' => $value_of_cart,
+                'code' => $key_code,
+            );
+        }));
+}
+
+add_action('rest_api_init', 'riothere_get_cart_percent_discount_api');
